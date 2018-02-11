@@ -14,9 +14,9 @@ namespace TheTravelingSalesperson
         public enum ProductType
         {
             None,
-            Furry,
-            Spotted,
-            Dancing
+            Health,
+            Stamina,
+            Magic
         }
 
         #endregion

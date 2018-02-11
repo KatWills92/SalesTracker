@@ -22,8 +22,8 @@ namespace TheTravelingSalesperson
 
         private static string _headerText = "- set header text -";
 
-        private static ConsoleColor _headerBackgroundColor = ConsoleColor.White;
-        private static ConsoleColor _headerForegroundColor = ConsoleColor.Red;
+        private static ConsoleColor _headerBackgroundColor = ConsoleColor.Gray;
+        private static ConsoleColor _headerForegroundColor = ConsoleColor.DarkGreen;
 
         private static ConsoleColor _bodyBackgroundColor = ConsoleColor.Black;
         private static ConsoleColor _bodyForegroundColor = ConsoleColor.White;
@@ -68,13 +68,13 @@ namespace TheTravelingSalesperson
 
         public static ConsoleColor HeaderBackgroundColor
         {
-            get { return _headerBackgroundColor = ConsoleColor.White; }
+            get { return _headerBackgroundColor = ConsoleColor.Gray; }
             set { _headerBackgroundColor = value; }
         }
 
         public static ConsoleColor HeaderForegroundColor
         {
-            get { return _headerForegroundColor = ConsoleColor.Red; }
+            get { return _headerForegroundColor = ConsoleColor.DarkGreen; }
             set { _headerForegroundColor = value; }
         }
 
@@ -86,7 +86,7 @@ namespace TheTravelingSalesperson
 
         public static ConsoleColor BodyForegroundColor
         {
-            get { return _bodyForegroundColor = ConsoleColor.Red; }
+            get { return _bodyForegroundColor = ConsoleColor.DarkGreen; }
             set { _bodyForegroundColor = value; }
         }
 

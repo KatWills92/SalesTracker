@@ -55,6 +55,13 @@ namespace TheTravelingSalesperson
 
         #region CONSTRUCTORS
 
+        public Salesperson()
+        {
+            _citiesVisited = new List<string>();
+            CurrentStock = new Product();
+        }
+        
+
         public Salesperson(string firstName, string lastName, string accountID)
         {
             _firstName = firstName;

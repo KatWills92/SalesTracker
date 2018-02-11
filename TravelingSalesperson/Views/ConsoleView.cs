@@ -36,7 +36,7 @@ namespace TheTravelingSalesperson
 
         private void InitializeConsole()
         {
-            ConsoleUtil.HeaderText = "The Traveling Salesperson Application";
+            ConsoleUtil.HeaderText = "The Sales Tracker";
         }
 
         public void DisplayContinuePrompt()
@@ -61,7 +61,7 @@ namespace TheTravelingSalesperson
             Console.CursorVisible = false;
 
             ConsoleUtil.DisplayMessage("");
-            ConsoleUtil.DisplayMessage("Thank you for using the application. Press any key to Exit.");
+            ConsoleUtil.DisplayMessage("Thank you for using Sales Tracker. Press any key to Exit.");
 
             Console.ReadKey();
 
@@ -77,15 +77,15 @@ namespace TheTravelingSalesperson
             ConsoleUtil.DisplayReset();
 
             sb.Clear();
-            sb.AppendFormat("You are a traveling salesperson buying and selling products ");
-            sb.AppendFormat("around the country. You will be prompted regarding which city ");
-            sb.AppendFormat("you wish to travel to and will then be asked whether you wish to buy ");
-            sb.AppendFormat("or sell products.");
+            sb.AppendFormat("The Sales Tracker App is here to help! ");
+            sb.AppendFormat("After entering your Account info. Sales Tracker will keep ");
+            sb.AppendFormat("track of all the cities you have visited and the buying and ");
+            sb.AppendFormat("selling of your inventory stock.");
             ConsoleUtil.DisplayMessage(sb.ToString());
             ConsoleUtil.DisplayMessage("");
 
             sb.Clear();
-            sb.AppendFormat("Your first task will be to set up your account details.");
+            sb.AppendFormat("Please set up your account details.");
             ConsoleUtil.DisplayMessage(sb.ToString());
 
             DisplayContinuePrompt();
@@ -129,7 +129,7 @@ namespace TheTravelingSalesperson
 
           
             ConsoleUtil.DisplayMessage("");
-            ConsoleUtil.DisplayPromptMessage("Enter the product type: ");
+            ConsoleUtil.DisplayPromptMessage("Greetings Potion Seller. Please enter the product type you wish to sell today: ");
             Product.ProductType productType;
             if (Enum.TryParse<Product.ProductType>(UppercaseFirst(Console.ReadLine()), out productType))
             {
@@ -140,9 +140,7 @@ namespace TheTravelingSalesperson
                 salesperson.CurrentStock.Type = Product.ProductType.None;
             }
 
-            //
-            // get number of products in inventory
-            //
+           
             if (ConsoleValidator.TryGetIntegerFromUser(0, 100, 3, "products", out int numberOfUnits))
             {
                 salesperson.CurrentStock.AddProducts(numberOfUnits);
@@ -186,15 +184,11 @@ namespace TheTravelingSalesperson
 
             while (usingMenu)
             {
-                //
-                // set up display area
-                //
+                
                 ConsoleUtil.DisplayReset();
                 Console.CursorVisible = false;
 
-                //
-                // display the menu
-                //
+                
                 ConsoleUtil.DisplayMessage("Please type the number of your menu choice.");
                 ConsoleUtil.DisplayMessage("");
                 Console.Write(
@@ -206,10 +200,7 @@ namespace TheTravelingSalesperson
                     "\t" + "6. Display Account Info" + Environment.NewLine +
                     "\t" + "E. Exit" + Environment.NewLine);
 
-                //
-                // get and process the user's response
-                // note: ReadKey argument set to "true" disables the echoing of the key press
-                //
+                
                 ConsoleKeyInfo userResponse = Console.ReadKey(true);
                 switch (userResponse.KeyChar)
                 {
@@ -244,8 +235,8 @@ namespace TheTravelingSalesperson
                         break;
                     default:
                         ConsoleUtil.DisplayMessage(
-                            "It appears you have selected an incorrect choice." + Environment.NewLine +
-                            "Press any key to continue or the ESC key to quit the application.");
+                            "That is not a valid imput. Please enter a valid input." + Environment.NewLine +
+                            "Press any key to continue or the E key to quit the application.");
 
                         userResponse = Console.ReadKey(true);
                         if (userResponse.Key == ConsoleKey.Escape)
@@ -266,7 +257,7 @@ namespace TheTravelingSalesperson
 
             ConsoleUtil.DisplayReset();
 
-            ConsoleUtil.DisplayPromptMessage("Enter the name of the next city:");
+            ConsoleUtil.DisplayPromptMessage("Enter the name of the next city you are going to:");
             nextCity = Console.ReadLine();
 
             return nextCity;
@@ -284,8 +275,7 @@ namespace TheTravelingSalesperson
 
             if (!ConsoleValidator.TryGetIntegerFromUser(MINIMUM_BUYSELL_AMOUNT, MAXIMUM_BUYSELL_AMOUNT, MAXIMUM_ATTEMPTS, "products", out int numberOfUnitsToBuy))
             {
-                ConsoleUtil.DisplayMessage("It appears you are having difficulty setting the number of products to buy.");
-                ConsoleUtil.DisplayMessage("By default, the number of products to sell will be set to zero.");
+                ConsoleUtil.DisplayMessage("Please set the number of products you would like to buy.");                
                 numberOfUnitsToBuy = 0;
                 DisplayContinuePrompt();
             }
@@ -311,7 +301,7 @@ namespace TheTravelingSalesperson
             if (!ConsoleValidator.TryGetIntegerFromUser(MINIMUM_BUYSELL_AMOUNT, MAXIMUM_BUYSELL_AMOUNT, MAXIMUM_ATTEMPTS, "products", out int numberOfUnitsToSell))
             {
                 ConsoleUtil.DisplayMessage("It appears you are having difficulty setting the number of products to sell.");
-                ConsoleUtil.DisplayMessage("By default, the number of products to sell will be set to zero.");
+
                 numberOfUnitsToSell = 0;
                 DisplayContinuePrompt();
             }
@@ -359,7 +349,7 @@ namespace TheTravelingSalesperson
         {
             ConsoleUtil.DisplayReset();
 
-            ConsoleUtil.DisplayMessage("You have traveled to the following cities.");
+            ConsoleUtil.DisplayMessage("You have been to the following cities.");
             ConsoleUtil.DisplayMessage("");
 
             foreach (string city in salesperson.CitiesVisited)

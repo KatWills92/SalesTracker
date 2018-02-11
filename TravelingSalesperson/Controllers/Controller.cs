@@ -23,13 +23,15 @@ namespace TheTravelingSalesperson
 
         #region CONSTRUCTORS
 
+
+        //instantiate salesperson and the console view
         public Controller()
         {
             InitializeController();
 
            
             _salesperson = new Salesperson();
-
+            
            
             _consoleView = new ConsoleView();
 
@@ -41,7 +43,7 @@ namespace TheTravelingSalesperson
 
         #region METHODS
 
-      
+        //instantiate controller
         private void InitializeController()
         {
             _usingApplication = true;
@@ -56,10 +58,9 @@ namespace TheTravelingSalesperson
 
             _salesperson = _consoleView.DisplaySetupAccount();
 
-            
+            //main menu app loop and main choice get
             while (_usingApplication)
             {
-
                 
                 userMenuChoice = _consoleView.DisplayGetUserMenuChoice();
 
@@ -100,7 +101,7 @@ namespace TheTravelingSalesperson
             Environment.Exit(1);
         }
 
-       
+       //add city location
         private void Travel()
         {
             string nextCity = _consoleView.DisplayGetNextCity();
